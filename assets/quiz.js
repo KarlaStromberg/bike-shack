@@ -1,6 +1,6 @@
 const finish_btn = document.getElementById("finish-button");
 
-const form = document.querySelector("#quizForm");
+const quiz_form = document.querySelector("#quizForm");
 const answers = {};
 
 let currentQuestionIndex = 0;
@@ -22,26 +22,22 @@ prev_btn.addEventListener("click", function () {
   updateButtonStates(currentQuestionIndex);
 });
 
-
 function updateButtonStates(index) {
-  
  prev_btn.disabled = (index===0);
- next_btn.disabled = (index===questions.length-1);
-  
+ next_btn.classList.toggle("hidden", index === questions.length-1);
+ finish_btn.classList.toggle("hidden", index !== questions.length-1);
 }
 
 function displayQuestion(index) {
 let current_question = questions[index];
-
-console.log(questions[index]);
   
 let selected_answer = answers[current_question.name] || ''; 
   
 let question_html = `
 <h2>${current_question.text}</h2>
 <div class="label-container">
-${current_question.options.map(option => `
-  <input type="radio" id="${option.value}" name="${current_question.name}" ${option.value === selected_answer ? "checked" : ""} value="${option.value}">
+  ${current_question.options.map(option => `
+  <input  ${option.value === selected_answer ? "checked" : ""} type="radio" id="${option.value}" name="${current_question.name}" value="${option.value}">
   <label for="${option.value}">
     <div class="img-wrap">
       <img src="${option.img}">
@@ -51,25 +47,20 @@ ${current_question.options.map(option => `
   </div>
 `;
   
-form.innerHTML = question_html;
+quiz_form.innerHTML = question_html;
 }
 
 //initialize 
 displayQuestion(currentQuestionIndex);
 updateButtonStates(currentQuestionIndex);
 
-
-form.addEventListener("change", updateAnswers);
+quiz_form.addEventListener("change", updateAnswers);
 function updateAnswers(event) {
   //code to store answers
 
   let input = event.target;
   answers[input.name] = input.value;
-
-  console.log("answers: ", answers);
 }
-
-
 
 finish_btn.addEventListener("click", function () {
   if (answers.product_type && answers.bike_type && answers.color) {
