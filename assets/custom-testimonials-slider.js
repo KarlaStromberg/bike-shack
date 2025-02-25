@@ -1,9 +1,10 @@
-// initialize slideshow
-
-// config:
-// assume there is just one single slider on the page
-// navigation dots should be disabled
-// no autoplay
-// infinite loop
-// the slides or cells should be aligned to the left side on initialization.
-// pauseAutoPlayOnHover: false
+const testimonial_slide = document.querySelector(".testimonial-slider");
+const slider = new Flickity(testimonial_slide, {
+	// options
+	cellAlign: "left",
+	wrapAround: true,
+	autoPlay: 5000,
+	pageDots: false,
+	autoPlay: false,
+    pauseAutoPlayOnHover: false
+});
