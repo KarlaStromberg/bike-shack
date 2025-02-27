@@ -1,10 +1,8 @@
-const testimonial_slide = document.querySelector(".testimonial-slider");
-const slider = new Flickity(testimonial_slide, {
-	// options
-	cellAlign: "left",
-	wrapAround: true,
-	autoPlay: 5000,
+const slider_html = document.querySelector(".testimonial-slider");
+const slider = new Flickity(slider_html, {
 	pageDots: false,
-	autoPlay: false,
-    pauseAutoPlayOnHover: false
+    autoPlay: false,
+    wrapAround: true,
+    pauseAutoPlayOnHover: false,
+    cellAlign: "left"
 });
