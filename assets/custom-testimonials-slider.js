@@ -1,8 +1,15 @@
-const slider_html = document.querySelector(".testimonial-slider");
-const slider = new Flickity(slider_html, {
-	pageDots: false,
-    autoPlay: false,
-    wrapAround: true,
-    pauseAutoPlayOnHover: false,
-    cellAlign: "left"
+const slider_html = document.querySelectorAll(".testimonial-slider");
+
+slider_html.forEach((elem) => {
+    let autoPlay = Number(elem.dataset.autoplay);
+
+    const slider = new Flickity(elem, {
+        pageDots: false,
+        autoPlay: autoPlay,
+        wrapAround: true,
+        pauseAutoPlayOnHover: false,
+        cellAlign: "left"
+    });
 });
+
+
