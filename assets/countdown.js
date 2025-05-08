@@ -3,7 +3,7 @@ class CountDownTimer extends HTMLElement {
     super();
 
     //Grab required elements
-    this.countDownText = this.querySelector('.countdown-timer');
+    this.countDownText = this.querySelector('.countdown-text');
 
     this.daysContainer = this.querySelector(".days");
     this.hoursContainer = this.querySelector(".hours");
@@ -11,7 +11,8 @@ class CountDownTimer extends HTMLElement {
     this.secondsContainer = this.querySelector(".seconds");
 
     // Set Date
-    this.endDateString = this.countDownText.dataset.enddate;
+    this.timerContainer = this.querySelector(".countdown-timer");
+    this.endDateString = this.timerContainer.dataset.endDate;
     this.endDate = new Date(this.endDateString).getTime();
 
 
