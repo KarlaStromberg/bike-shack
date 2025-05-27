@@ -350,6 +350,7 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
     
+  {%- comment -%}
     {% if template == 'product' %}
       <script>
           document.addEventListener('afterVariantChange', handleVariantChange)
@@ -360,6 +361,6 @@
           
       </script>
     {% endif %}
-
+  {%- endcomment -%}
   </body>
 </html>
