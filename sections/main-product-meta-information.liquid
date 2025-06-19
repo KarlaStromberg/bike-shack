@@ -299,12 +299,17 @@
                   const breaksTxt = document.querySelector('#meta-information-breaks');
 
                   function updateUI(variantOption) {
-
+                    weightTxt.innerHTML = variantMetaData[variantOption].weight;
+                    rangeTxt.innerHTML = variantMetaData[variantOption].range;
+                    speedTxt.innerHTML = variantMetaData[variantOption].speed;
+                    batteryTxt.innerHTML = variantMetaData[variantOption].battery;
+                    breaksTxt.innerHTML = variantMetaData[variantOption].breaks;
                   }
                   //subscribe to variant changes and update UI based on new selection
                   //...
-
-
+                  document.addEventListener("afterVariantChange", event => {
+                  updateUI(event.detail.newVariant.option1);  
+                  });    
 
                   //initialize on pageload
                   const initialVariantOption = document.querySelector('#meta-information-table').dataset.initialvariantoption;
