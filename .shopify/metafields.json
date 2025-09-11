@@ -39,6 +39,56 @@
         "name": "number_integer",
         "category": "NUMBER"
       }
+    },
+    {
+      "key": "gear",
+      "namespace": "bike",
+      "name": "gear",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "brake",
+      "namespace": "bike",
+      "name": "brake",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "suspension",
+      "namespace": "bike",
+      "name": "suspension",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "frame",
+      "namespace": "bike",
+      "name": "frame",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "rating",
+      "namespace": "bike",
+      "name": "rating",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
     }
   ],
   "variant": [
