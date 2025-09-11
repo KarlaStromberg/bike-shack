@@ -28,13 +28,11 @@ class ProductCompareView extends HTMLElement {
     console.log(`attempting to add product ${productHandle}`);
     if (!productHandle) return;
 
-
     /* 4) Later add a check to see if the product is already in the comparison container; if yes, return */
     //add check here
     if (this.comparisonContainer.querySelector(`#${productHandle}`)){
       return;
     }
-  
 
     /* 2) fetch the product card for the selected product */
 
@@ -62,12 +60,10 @@ class ProductCompareView extends HTMLElement {
   async fetchProductCardSection(productHandle) {
     try {
       /* 2.1) build the url to fetch our section, based on the productHandle */
-      console.log("this is the handle:", productHandle);
       const sectionApiUrl = `/products/${productHandle}?section_id=compare-product-card`;
 
       console.log(sectionApiUrl, "Url to fetch Section");
       const response = await fetch(sectionApiUrl);
-
 
       /* 2.2) Extract the html-text from the response and parse it into a DOM object using DOMParser */
       const htmlText = await response.text();
@@ -75,9 +71,8 @@ class ProductCompareView extends HTMLElement {
       const html = parser.parseFromString(htmlText, "text/html");
      
       /* 2.3) Extract the product card from the DOM object and return it*/
-      const productCard = html.querySelector('.compare-product-card');
-      console.log(html.querySelector('.compare-product-card'));
-
+      const productCard = html.querySelector(`#${productHandle}`);
+      
       console.log(productCard, "The new product card element");
 
       if (!productCard) {
@@ -101,8 +96,6 @@ class ProductCompareView extends HTMLElement {
 
     /* 5) remove product from our container and toggle the select option */
     this.comparisonContainer.querySelector(`#${removehandle}`).remove();
-      
-    
 
     this.toggleSelectOption(removehandle);
   }

@@ -6,23 +6,23 @@ Replace all hardcoded values with dynamic values from the product object
 {% endcomment %}
 
 
-<div class="compare-product-card" id="{{ product.handle }}">
+<div class="compare-product-card" id="{{product.handle}}">
   <div class="title-wrap">
     <h4>{{product.title}}</h4>
 
-    <button class="remove-product-button" data-removeproducthandle="{{ product.handle }}" aria-label="Remove product">
+    <button class="remove-product-button" data-removeproducthandle="{{product.handle}}" aria-label="Remove product">
     
     </button>
 
   </div>
-  <img src="{{ product | image_url: width: 200 }}" alt="{{product.media.first.alt}}">
-  <p>Price: {{ product.selected_or_first_available_variant.price | money }}</p>
-  <p>Rating: {{ product.metafields.bike.rating }}</p>
-  <p>Frame: {{ product.metafields.bike.frame }}</p>
-  <p>Suspension: {{ product.metafields.bike.suspension }}</p>
-  <p>Brake: {{ product.metafields.bike.brake }}</p>
-  <p>Gears: {{ product.metafields.bike.gear }}</p>
-  <p><a class="link--text" href="/products/{{ product.handle }}">More Details</a></p>
+  <img src="{{ product.featured_image | image_url: width: '200' }}" alt="{{product.title}}">
+  <p>Price: {{ product.price | money }}</p>
+  <p>Rating: {{ product.metafields.bike.rating.value }}</p>
+  <p>Frame: {{ product.metafields.bike.frame.value }}</p>
+  <p>Suspension: {{ product.metafields.bike.suspension.value }}</p>
+  <p>Brake: {{ product.metafields.bike.brake.value }}</p>
+  <p>Gears: {{ product.metafields.bike.gear.value }}</p>
+  <p><a class="link--text" href="{{ product.url }}">More Details</a></p>
 </div>
 
 {% schema %}
